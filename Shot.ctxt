@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Shot()
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Shot\n
+comment1.params=
+comment1.target=void\ setLocations()
+comment2.params=
+comment2.target=java.util.ArrayList\ getLocations()
+comment3.params=
+comment3.target=void\ velocity()
+comment4.params=gauge\ shotSize
+comment4.target=int\ calcNOfPellets(int,\ int)
+numComments=5

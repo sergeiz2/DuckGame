@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Voxel\ getReferanceVoxel()
+comment1.params=
+comment1.target=void\ setReferanceVoxel()
+comment2.params=
+comment2.target=Voxel\ getVelocity()
+comment3.params=
+comment3.target=void\ setVelocity()
+numComments=4
