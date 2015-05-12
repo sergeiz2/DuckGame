@@ -10,6 +10,18 @@ USER INSTRUCTIONS: Run "Runner.java"
 **                                                               DOCUMENTATION                                                                                **
 ***********************************************************************************************************************
 
+DESCRIPTION:
+*************************************************
+This program attempts to semi-accurately simulate a duck hunting game. (Although it is not duck-specific, and could be 
+used to simulate hunting other fowl I have and will henceforth refer to this as a duck hunting game, and have titled it
+as such.) The program accomplishes this by accounting for the velocity of the duck curing the time that the shot is
+flying towards it, for the expansion and elongation of the shot cloud, the variation in it's density as a result, 
+air resistance, etc. The reason the program is a semi-accurate simulation is due to the fact that it cannot and will
+not track each individual pellet as it is flying. As a result, the locations of the pellets will be found when the cloud
+of shot reaches the plane of the duck, using probabilistic calculations based on the relative density of the shot cloud.
+In addition, depending on the quantity of pellets that hit the duck and where they hit the duck, the probablility that 
+the shot cloud will or will not bring the duck down is calculated, and the duck either falls or continues flying.
+
 OBJECTS:
 *************************************************
 Runner: Runs the program.
