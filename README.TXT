@@ -22,6 +22,9 @@ of shot reaches the plane of the duck, using probabilistic calculations based on
 In addition, depending on the quantity of pellets that hit the duck and where they hit the duck, the probablility that 
 the shot cloud will or will not bring the duck down is calculated, and the duck either falls or continues flying.
 
+***NOTE: Although the program may seem overly complex, it will go through several iterations, the initial one being 
+significantly more simple than described. It will however, despite greater simplicity, be presentable.***
+
 OBJECTS:
 *************************************************
 Runner: Runs the program.
