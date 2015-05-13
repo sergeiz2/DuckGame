@@ -8,7 +8,7 @@
 import java.util.*;
 public class Duck extends MovingObj
 {
-    private Object velocity; //<-- see other notes about velocity
+    private Voxel velocity; //<-- see other notes about velocity
     private ArrayList<Voxel> duckLocations;
     private int size;
     

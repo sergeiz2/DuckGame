@@ -8,8 +8,7 @@
 import java.util.*;
 public class Voxel
 {
-    // instance variables - replace the example below with your own
-    private ArrayList<Locatable> occupants;
+    private ArrayList<MovingObj> occupants;
 
     /**
      * Constructor for objects of class Voxel

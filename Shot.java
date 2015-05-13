@@ -11,9 +11,9 @@ public class Shot extends MovingObj
     private int sGauge;
     private int shotSize;
     private int nOfPellets;
-    private Object velocity; //<-- maybe calculate this by just recalculating locations?
+    private Voxel velocity;
     private ArrayList<Voxel> shotLocations;
-    private double probablilityOfShotInVoxel; //There should still be exactly nOfPellets pellets per cloud. More hardecore math. US DENSITY
+    private double probablilityOfShotInVoxel; //There should still be exactly nOfPellets pellets per cloud. More hardecore math. USE DENSITY
 
     /**
      * Constructor for objects of class Shot

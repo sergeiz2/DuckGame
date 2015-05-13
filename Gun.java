@@ -14,6 +14,7 @@ public class Gun extends MovingObj
     private Object direction; //as two angles? how?
     private ArrayList<Voxel> gunLocations;
     private Object choke;
+    private Voxel velocity;
     
 
     /**
