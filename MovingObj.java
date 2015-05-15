@@ -7,20 +7,20 @@
  */
 public abstract class MovingObj implements Locatable 
 {
-    private Voxel referanceVoxel; //voxel from which obj is referanced/built
-    private Voxel velocity; //Voxel type because velocity vector is drawn from (x,y,z,): (0,0,0) to the Voxel's coordiantes. //IS THIS VELOCITY INHERITED BY OTHER OBJS? AND ALL THE VELOCITY METHODS?
+    private /*Voxel*/ referancePoint; //point from which obj is referanced/built
+    private /*Voxel*/ velocity; //IS THIS VELOCITY INHERITED BY OTHER OBJS? AND ALL THE VELOCITY METHODS?
 
-    MovingObj(Voxel refVoxel, Voxel vel)
+    MovingObj(Object refPoint, Object vel)
     {
-        referanceVoxel = refVoxel;
+        referanceVoxel = refPoint;
         velocity = vel;
     }
-    public Voxel getReferanceVoxel()
+    public Object getReferancePoint()
     {
-        return referanceVoxel;
+        return referancePoint;
     }
-    public abstract void setReferanceVoxel();
-    public Voxel getVelocity()
+    public abstract void setReferancePoint();
+    public Object getVelocity()
     {
         return velocity;
     }
