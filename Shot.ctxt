@@ -1,13 +1,19 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Shot()
+comment0.params=gauge\ sizeOfShot\ initVelocity
+comment0.target=Shot(int,\ int,\ Voxel)
 comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Shot\n
 comment1.params=
-comment1.target=void\ setLocations()
+comment1.target=void\ setInitVoxelLocation()
 comment2.params=
-comment2.target=java.util.ArrayList\ getLocations()
+comment2.target=void\ setLocations()
 comment3.params=
-comment3.target=void\ velocity()
-comment4.params=gauge\ shotSize
-comment4.target=int\ calcNOfPellets(int,\ int)
-numComments=5
+comment3.target=java.util.ArrayList\ getLocations()
+comment4.params=
+comment4.target=void\ setVelocity()
+comment5.params=
+comment5.target=void\ setReferanceVoxel()
+comment6.params=
+comment6.target=int\ calcNOfPellets()
+comment7.params=
+comment7.target=void\ setProbablilityOfShotInVoxel()
+numComments=8

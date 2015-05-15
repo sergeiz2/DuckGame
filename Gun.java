@@ -6,26 +6,42 @@
  * @version (a version number or a date)
  */
 import java.util.*;
-public class Gun extends MovingObj
+public class Gun implements Locatable
 {
-    // instance variables - replace the example below with your own
-    private int gGauge; //only certain possible values.
-    private int timePerShot; //in seconds? ms? 
-    private Object direction; //as two angles? how?
+    private int gunGauge; //only certain possible values.
+    private double timePerShot; //in seconds? ms? 
     private ArrayList<Voxel> gunLocations;
-    private Object choke;
-    private Voxel velocity;
-    
+    private String gunChoke;
+    private Voxel gunTip;
 
     /**
      * Constructor for objects of class Gun
      */
-    public Gun()
+    public Gun(int gauge, double firingRatePerShot, String choke)
     {
+        setLocations();
+        setTip();
+        gunGauge = gauge;
+        timePerShot = firingRatePerShot;
+        setLocations();
+        gunChoke = choke;
 
     }
 
-    public void setLocations(){}
-    public ArrayList<Voxel> getLocations(){return null;}
-    public void velocity(){} //<-- see other notes abt velocity
+    public void setLocations()
+    {
+        
+    }
+    public void setTip()
+    {
+        gunTip = ThreeDGrid.getOrigin(); //Replace with necessary voxel
+    }
+    public ArrayList<Voxel> getLocations()
+    {
+        return null;
+    }
+    public Voxel getGunTip()
+    {
+        return gunTip;
+    }
 }

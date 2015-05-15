@@ -8,23 +8,51 @@
 import java.util.*;
 public class Shot extends MovingObj
 {
-    private int sGauge;
-    private int shotSize;
-    private int nOfPellets;
-    private Voxel velocity;
+    private final int shotGauge;
+    private int shotSize; //Actual shot size of the round
+    private final int nOfPellets;
+    private Voxel shotVelocity;
     private ArrayList<Voxel> shotLocations;
-    private double probablilityOfShotInVoxel; //There should still be exactly nOfPellets pellets per cloud. More hardecore math. USE DENSITY
+    private double probablilityOfShotInVoxel; 
 
     /**
      * Constructor for objects of class Shot
      */
-    public Shot()
+    public Shot(int gauge, int sizeOfShot, Voxel initVelocity)
     {
-        
+        super(ThreeDGrid.getOrigin(),  initVelocity);
+        setLocations();
+        shotSize = sizeOfShot;
+        shotGauge = gauge;
+        nOfPellets = calcNOfPellets();
+        setInitVoxelLocation();/*Calculate the voxel immediately in front of the barrel of the gun*/
     }
-
-    public void setLocations(){}
-    public ArrayList<Voxel> getLocations(){return null;}
-    public void velocity(){} //<-- see other velocity notes
-    public int calcNOfPellets (int gauge, int shotSize){return 0;}
+    private void setInitVoxelLocation()
+    {
+        //shotLocations.add(Gun.getGunTip()); //Which instance of gun is this? Instance needs to be a param.
+        //                              ^^^^^^^^^^ can't do this. calling from static constructor, getGunTip() is not
+        //                                                         and can't be static... ???
+    }
+    public void setLocations()
+    {
+    }
+    public ArrayList<Voxel> getLocations()
+    {
+        return shotLocations;
+    }
+    public void setVelocity()
+    {
+    }
+    public void setReferanceVoxel()
+    {
+    }
+    public int calcNOfPellets ()
+    {
+        return 0; //insert math later 
+    }
+    public void setProbablilityOfShotInVoxel()
+    {
+        //calculate the probablility. There should still be exactly nOfPellets pellets per cloud. 
+        //USE DENSITY
+    }
 }

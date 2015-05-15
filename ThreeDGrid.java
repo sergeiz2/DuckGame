@@ -8,8 +8,8 @@
 import java.util.*;
 public class ThreeDGrid
 {
-    private int size;
-    private Voxel[][][] gridLocations;
+    private static /*<--Is this OK? Need it for call to this method from Shot constructor.*/ int size;
+    private static /*<--Is this OK? Need it for call to this method from Shot constructor.*/ Voxel[][][] grid;
     private final Voxel origin;
 
     /**
@@ -17,10 +17,13 @@ public class ThreeDGrid
      */
     public ThreeDGrid(int size)
     {
-        gridLocations = new Voxel[size*2][size*2][size*2];
-        origin = gridLocations [size][size][size];
+        grid = new Voxel[size*2][size*2][size*2];
+        origin = grid [size][size][size];
     }
-    
+    public static /*<--Is this OK? Need it for call to this method from Shot constructor.*/Voxel getOrigin()
+    {
+        return grid[size][size][size];
+    }
     //private ArrayList[] conflicts(Object gridLocations){}
     //private boolean hit(){}
 }

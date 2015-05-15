@@ -2,4 +2,6 @@
 comment0.params=size
 comment0.target=ThreeDGrid(int)
 comment0.text=\n\ Constructor\ for\ objects\ of\ class\ ThreeDGrid\n
-numComments=1
+comment1.params=
+comment1.target=Voxel\ getOrigin()
+numComments=2

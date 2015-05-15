@@ -1,11 +1,13 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Gun()
+comment0.params=gauge\ firingRatePerShot\ choke
+comment0.target=Gun(int,\ double,\ java.lang.String)
 comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Gun\n
 comment1.params=
 comment1.target=void\ setLocations()
 comment2.params=
-comment2.target=java.util.ArrayList\ getLocations()
+comment2.target=void\ setTip()
 comment3.params=
-comment3.target=void\ velocity()
-numComments=4
+comment3.target=java.util.ArrayList\ getLocations()
+comment4.params=
+comment4.target=Voxel\ getGunTip()
+numComments=5

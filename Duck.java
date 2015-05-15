@@ -8,19 +8,27 @@
 import java.util.*;
 public class Duck extends MovingObj
 {
-    private Voxel velocity; //<-- see other notes about velocity
+    private Voxel duckVelocity;
     private ArrayList<Voxel> duckLocations;
-    private int size;
+    private final int duckSize;
     
-    /**
-     * Constructor for objects of class Duck
-     */
-    public Duck(int duckSize, Object initVelocity /*<--see other notes about velocity*/, Object initLocations)
+    public Duck(int size, ArrayList<Voxel> initLocations, Voxel initVelocity)
     {
-        size = duckSize;
+        super(initLocations.get(0), initVelocity);
+        duckSize = size;
+        duckLocations = initLocations;
     }
-
-    public void setLocations(){}
-    public ArrayList<Voxel> getLocations(){return null;}
-    public void velocity(){} //<--see other notes about necessity of velocity method
+    public void setLocations()
+    {
+    }
+    public ArrayList<Voxel> getLocations()
+    {
+        return duckLocations;
+    }
+    public void setReferanceVoxel()
+    {
+    }
+    public void setVelocity()
+    {
+    }
 }

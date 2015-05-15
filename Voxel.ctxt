@@ -2,4 +2,10 @@
 comment0.params=
 comment0.target=Voxel()
 comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Voxel\n
-numComments=1
+comment1.params=
+comment1.target=double\ getXYAngle()
+comment2.params=
+comment2.target=double\ getXZAngle()
+comment3.params=
+comment3.target=double\ getZYAngle()
+numComments=4
