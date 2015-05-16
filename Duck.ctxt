@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.params=size\ initLocations\ initVelocity
-comment0.target=Duck(int,\ java.util.ArrayList,\ Voxel)
+comment0.target=Duck(int,\ java.util.ArrayList,\ org.apache.commons.math3.geometry.euclidean.threed.Vector3D)
 comment1.params=
 comment1.target=void\ setLocations()
 comment2.params=
 comment2.target=java.util.ArrayList\ getLocations()
 comment3.params=
-comment3.target=void\ setReferanceVoxel()
+comment3.target=void\ setReferancePoint()
 comment4.params=
 comment4.target=void\ setVelocity()
 numComments=5

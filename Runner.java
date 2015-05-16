@@ -9,7 +9,7 @@ public class Runner
 {
     public static void main(String args[])
     {
-        ThreeDGrid grid = new ThreeDGrid(100);
+        
         
     }
 }

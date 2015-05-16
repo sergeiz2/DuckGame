@@ -1,12 +1,12 @@
 #BlueJ class context
-comment0.params=refVoxel\ vel
-comment0.target=MovingObj(Voxel,\ Voxel)
+comment0.params=refPoint\ vel
+comment0.target=MovingObj(org.apache.commons.math3.geometry.euclidean.threed.Vector3D,\ org.apache.commons.math3.geometry.euclidean.threed.Vector3D)
 comment1.params=
-comment1.target=Voxel\ getReferanceVoxel()
+comment1.target=org.apache.commons.math3.geometry.euclidean.threed.Vector3D\ getReferancePoint()
 comment2.params=
-comment2.target=void\ setReferanceVoxel()
+comment2.target=void\ setReferancePoint()
 comment3.params=
-comment3.target=Voxel\ getVelocity()
+comment3.target=org.apache.commons.math3.geometry.euclidean.threed.Vector3D\ getVelocity()
 comment4.params=
 comment4.target=void\ setVelocity()
 numComments=5

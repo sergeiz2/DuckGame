@@ -6,51 +6,51 @@
  * @version (a version number or a date)
  */
 import java.util.*;
+import org.apache.commons.math3.geometry.euclidean.threed.*;
+
 public class Shot extends MovingObj
 {
     private final int shotGauge;
     private int shotSize; //Actual shot size of the round
     private final int nOfPellets;
-    private Voxel shotVelocity;
-    private ArrayList<Voxel> shotLocations;
+    private Vector3D shotVelocity;
+    private ArrayList<Vector3D> shotLocations;
     private double probablilityOfShotInVoxel; 
 
     /**
      * Constructor for objects of class Shot
      */
-    public Shot(int gauge, int sizeOfShot, Voxel initVelocity)
+    public Shot(int gauge, int sizeOfShot, Vector3D initVelocity)
     {
-        super(ThreeDGrid.getOrigin(),  initVelocity);
+        super(Vector3D.ZERO/*<--Change this ref pt later.*/,  initVelocity);
         setLocations();
         shotSize = sizeOfShot;
         shotGauge = gauge;
         nOfPellets = calcNOfPellets();
-        setInitVoxelLocation();/*Calculate the voxel immediately in front of the barrel of the gun*/
+        setInitLocation();/*Calculate the point immediately in front of the barrel of the gun*/
     }
-    private void setInitVoxelLocation()
+    private void setInitLocation()
     {
-        //shotLocations.add(Gun.getGunTip()); //Which instance of gun is this? Instance needs to be a param.
-        //                              ^^^^^^^^^^ can't do this. calling from static constructor, getGunTip() is not
-        //                                                         and can't be static... ???
+
     }
     public void setLocations()
     {
     }
-    public ArrayList<Voxel> getLocations()
+    public ArrayList<Vector3D> getLocations()
     {
         return shotLocations;
     }
     public void setVelocity()
     {
     }
-    public void setReferanceVoxel()
+    public void setReferancePoint()
     {
     }
     public int calcNOfPellets ()
     {
         return 0; //insert math later 
     }
-    public void setProbablilityOfShotInVoxel()
+    public void setProbablilityOfShotInPoint()
     {
         //calculate the probablility. There should still be exactly nOfPellets pellets per cloud. 
         //USE DENSITY

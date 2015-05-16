@@ -9,5 +9,5 @@ comment2.target=void\ setTip()
 comment3.params=
 comment3.target=java.util.ArrayList\ getLocations()
 comment4.params=
-comment4.target=Voxel\ getGunTip()
+comment4.target=org.apache.commons.math3.geometry.euclidean.threed.Vector3D\ getGunTip()
 numComments=5

@@ -5,22 +5,24 @@
  * @author (your name here)
  * @version (version number or date here)
  */
+import org.apache.commons.math3.geometry.euclidean.threed.*;
+
 public abstract class MovingObj implements Locatable 
 {
-    private /*Voxel*/ referancePoint; //point from which obj is referanced/built
-    private /*Voxel*/ velocity; //IS THIS VELOCITY INHERITED BY OTHER OBJS? AND ALL THE VELOCITY METHODS?
+    private Vector3D referancePoint; //point from which obj is referanced/built
+    private Vector3D velocity; 
 
-    MovingObj(Object refPoint, Object vel)
+    MovingObj(Vector3D refPoint, Vector3D vel)
     {
-        referanceVoxel = refPoint;
+        referancePoint = refPoint;
         velocity = vel;
     }
-    public Object getReferancePoint()
+    public Vector3D getReferancePoint()
     {
         return referancePoint;
     }
     public abstract void setReferancePoint();
-    public Object getVelocity()
+    public Vector3D getVelocity()
     {
         return velocity;
     }
