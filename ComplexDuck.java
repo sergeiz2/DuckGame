@@ -8,14 +8,16 @@
 import java.util.*;
 import org.apache.commons.math3.geometry.euclidean.threed.*;
 
-public class Duck extends MovingObj
+public class ComplexDuck extends Duck
 {
     private Vector3D duckVelocity;
     private ArrayList<Vector3D> duckLocations;
+    private final int duckSize;
     
-    public Duck(ArrayList<Vector3D> initLocations, Vector3D initVelocity)
+    public ComplexDuck(int size, ArrayList<Vector3D> initLocations, Vector3D initVelocity)
     {
-        super(initLocations.get(0), initVelocity);
+        super();
+        duckSize = size;
         duckLocations = initLocations;
     }
     public void setLocations()

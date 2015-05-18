@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=size\ initLocations\ initVelocity
-comment0.target=Duck(int,\ java.util.ArrayList,\ org.apache.commons.math3.geometry.euclidean.threed.Vector3D)
+comment0.params=initLocations\ initVelocity
+comment0.target=Duck(java.util.ArrayList,\ org.apache.commons.math3.geometry.euclidean.threed.Vector3D)
 comment1.params=
 comment1.target=void\ setLocations()
 comment2.params=

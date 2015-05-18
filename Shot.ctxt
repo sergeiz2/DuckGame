@@ -1,7 +1,6 @@
 #BlueJ class context
-comment0.params=gauge\ sizeOfShot\ initVelocity
-comment0.target=Shot(int,\ int,\ org.apache.commons.math3.geometry.euclidean.threed.Vector3D)
-comment0.text=\n\ Constructor\ for\ objects\ of\ class\ Shot\n
+comment0.params=sizeOfShot\ initVelocity
+comment0.target=Shot(int,\ org.apache.commons.math3.geometry.euclidean.threed.Vector3D)
 comment1.params=
 comment1.target=void\ setInitLocation()
 comment2.params=

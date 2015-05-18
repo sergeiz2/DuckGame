@@ -8,21 +8,26 @@
 import java.util.*;
 import org.apache.commons.math3.geometry.euclidean.threed.*;
 
-public class Gun implements Locatable
+public class ComplexGun extends Gun
 {
-    private final int gunGauge = 12; //only certain possible values.
-    private final double timePerShot = 1000; //in ms.
+    private int gunGauge; //only certain possible values.
+    private double timePerShot; //in seconds? ms? 
     private ArrayList<Vector3D> gunLocations;
+    private String gunChoke;
     private Vector3D gunTip; //<-- maybe instead of this just find the appropriate point from gunLocations?
 
     /**
      * Constructor for objects of class Gun
      */
-    public Gun()
+    public ComplexGun(int gauge, double firingRatePerShot, String choke)
     {
         setLocations();
         setTip(); //See note above for gunTip
+        gunGauge = gauge;
+        timePerShot = firingRatePerShot;
         setLocations();
+        gunChoke = choke;
+
     }
 
     public void setLocations()

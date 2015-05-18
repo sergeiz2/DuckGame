@@ -8,20 +8,21 @@
 import java.util.*;
 import org.apache.commons.math3.geometry.euclidean.threed.*;
 
-public class Shot extends MovingObj
+public class ComplexShot extends Shot
 {
-    private final int shotGauge = 12;
-    private int shotSize;
+    private final int shotGauge;
+    private int shotSize; //Actual shot size of the round
     private final int nOfPellets;
     private Vector3D shotVelocity;
     private ArrayList<Vector3D> shotLocations;
-    private double probablilityOfShotInPoint;
+    private double probablilityOfShotInVoxel; 
 
-    public Shot(int sizeOfShot, Vector3D initVelocity) //velocity must realistically be calculated
+    public ComplexShot(int gauge, int sizeOfShot, Vector3D initVelocity)
     {
-        super(Vector3D.ZERO/*<--Change this ref pt later.*/,  initVelocity);
+        super();
         setLocations();
         shotSize = sizeOfShot;
+        shotGauge = gauge;
         nOfPellets = calcNOfPellets();
         setInitLocation();/*Calculate the point immediately in front of the barrel of the gun*/
     }
@@ -52,4 +53,3 @@ public class Shot extends MovingObj
         //USE DENSITY
     }
 }
-
