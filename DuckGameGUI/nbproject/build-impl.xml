@@ -20,7 +20,7 @@ is divided into following sections:
 
         -->
 <project xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxrpc="http://www.netbeans.org/ns/j2se-project/jax-rpc" basedir=".." default="default" name="DuckGameGUI-impl">
-    <import file="jfx-impl.xml"/>
+   <import file="jfx-impl.xml"/>
     <fail message="Please build using Ant 1.8.0 or higher.">
         <condition>
             <not>
@@ -1044,7 +1044,11 @@ is divided into following sections:
     </target>
     <target depends="init,compile,-pre-pre-jar,-pre-jar,-do-jar-create-manifest,-do-jar-copy-manifest,-do-jar-set-mainclass,-do-jar-set-profile,-do-jar-set-splashscreen,-do-jar-jar,-do-jar-delete-manifest" name="-do-jar-without-libraries"/>
     <target depends="init,compile,-pre-pre-jar,-pre-jar,-do-jar-create-manifest,-do-jar-copy-manifest,-do-jar-set-mainclass,-do-jar-set-profile,-do-jar-set-splashscreen,-do-jar-copylibs,-do-jar-delete-manifest" name="-do-jar-with-libraries"/>
+<<<<<<< HEAD
     <target depends="-jfx-copylibs,-rebase-libs,jfx-deployment" name="-post-jar">
+=======
+    <target name="-post-jar">
+>>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
         <!-- Empty placeholder for easier customization. -->
         <!-- You can override this target in the ../build.xml file. -->
     </target>
@@ -1055,7 +1059,11 @@ is divided into following sections:
                 EXECUTION SECTION
                 =================
             -->
+<<<<<<< HEAD
     <target depends="init,compile,jar" description="Run a main class." name="run">
+=======
+    <target depends="init,compile" description="Run a main class." name="run">
+>>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
         <j2seproject1:java>
             <customize>
                 <arg line="${application.args}"/>
@@ -1091,7 +1099,11 @@ is divided into following sections:
             </customize>
         </j2seproject3:debug>
     </target>
+<<<<<<< HEAD
     <target depends="init,compile,-debug-start-debugger,-debug-start-debuggee,jar" description="Debug project in IDE." if="netbeans.home" name="debug"/>
+=======
+    <target depends="init,compile,-debug-start-debugger,-debug-start-debuggee" description="Debug project in IDE." if="netbeans.home" name="debug"/>
+>>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
     <target depends="init" if="netbeans.home" name="-debug-start-debugger-stepinto">
         <j2seproject1:nbjpdastart stopclassname="${main.class}"/>
     </target>
@@ -1188,7 +1200,11 @@ is divided into following sections:
             </or>
         </condition>
     </target>
+<<<<<<< HEAD
     <target depends="-profile-check,-profile-pre72,jar" description="Profile a project in the IDE." if="profiler.configured" name="profile" unless="profiler.info.jvmargs.agent">
+=======
+    <target depends="-profile-check,-profile-pre72" description="Profile a project in the IDE." if="profiler.configured" name="profile" unless="profiler.info.jvmargs.agent">
+>>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
         <startprofiler/>
         <antcall target="run"/>
     </target>
