@@ -63,7 +63,7 @@ public class DuckGameGUI extends Application
         grid.add(gun, 25, 10);
         grid.add(shot, 26, 10);
         grid.add(difficulty, 80, 10);
-        
+       
         menuScene.getStylesheets().add
         (DuckGameGUI.class.getResource("DuckGameGUI.css").toExternalForm());
         
