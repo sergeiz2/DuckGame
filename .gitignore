@@ -1,2 +1,5 @@
 .DS_Store
 package.bluej
+/DuckGameGUI/nbproject/private/
+/DuckGameGUI/build/
+/DuckGameGUI/dist/
