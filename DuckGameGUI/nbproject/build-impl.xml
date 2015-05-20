@@ -1059,11 +1059,7 @@ is divided into following sections:
                 EXECUTION SECTION
                 =================
             -->
-<<<<<<< HEAD
     <target depends="init,compile,jar" description="Run a main class." name="run">
-=======
-    <target depends="init,compile" description="Run a main class." name="run">
->>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
         <j2seproject1:java>
             <customize>
                 <arg line="${application.args}"/>
