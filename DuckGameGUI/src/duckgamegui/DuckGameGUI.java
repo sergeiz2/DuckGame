@@ -5,6 +5,7 @@
  */
 package duckgamegui;
 
+<<<<<<< HEAD
 import java.awt.Color;
 import java.awt.Rectangle;
 import javafx.application.Application;
@@ -69,4 +70,19 @@ public class DuckGameGUI extends Application
         
         mainStage.show();   
     }
+=======
+/**
+ *
+ * @author szvenig7
+ */
+public class DuckGameGUI {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
+    
+>>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
 }
