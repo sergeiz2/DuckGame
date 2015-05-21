@@ -2,7 +2,6 @@
 <project xmlns="http://www.netbeans.org/ns/project/1">
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
-<<<<<<< HEAD
         <buildExtensions xmlns="http://www.netbeans.org/ns/ant-build-extender/1">
             <extension file="jfx-impl.xml" id="jfx3">
                 <dependency dependsOn="-jfx-copylibs" target="-post-jar"/>
@@ -13,8 +12,6 @@
                 <dependency dependsOn="jar" target="run"/>
             </extension>
         </buildExtensions>
-=======
->>>>>>> 3a2a5a1642ea3f9705e8b21fe8ebdfda11320128
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>DuckGameGUI</name>
             <source-roots>
