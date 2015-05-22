@@ -7,11 +7,19 @@
  */
 public class Runner
 {
+    private Gun gun;
+    
+    Runner(String gunType, int gauge, String choke, double shotSize, String shotMaterial, int difficulty)
+    {
+        gun = new Gun();
+        System.out.println(gunType + gauge + choke + shotSize + shotMaterial + difficulty);
+    }
+    
     public static void main(String args[])
     {
         //Tells gui to display a menu with selections for a gun and ammunition)
         //recieves gun params from gui
-        //recieves Shot params from gui
+        //recieves Shot params from guiR
         //calculates nOfPellets, weight overall, surface area of each pellet (for wind resistance)
         //displays x-y view of game screen, with a button for exiting back to the menu. //will eventually be x-y-z
         //don't draw the gun yet // will eventually draw a rectangle

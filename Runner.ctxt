@@ -1,4 +1,6 @@
 #BlueJ class context
-comment0.params=args
-comment0.target=void\ main(java.lang.String[])
-numComments=1
+comment0.params=gunType\ gauge\ choke\ shotSize\ shotMaterial\ difficulty
+comment0.target=Runner(java.lang.String,\ int,\ java.lang.String,\ double,\ java.lang.String,\ int)
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2
