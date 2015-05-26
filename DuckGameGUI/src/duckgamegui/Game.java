@@ -22,6 +22,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -43,6 +45,7 @@ public class Game extends Application {
     public void start(Stage mainStage) 
     {
         this.mainStage = mainStage;
+        
         mainStage.setTitle("Duck Hunter 1.0.0 - Game");
         mainStage.setMinWidth(500);
         mainStage.setMinHeight(500);
@@ -59,16 +62,6 @@ public class Game extends Application {
         gameScene = new Scene(grid);
         mainStage.setScene(gameScene);
         
-        Button shootButton = new Button("Shoot");
-        shootButton.setOnAction(new EventHandler<ActionEvent>()
-        { 
-            @Override public void handle(ActionEvent e)
-            {
-                
-            }
-            
-        });
-        
         Button pauseButton = new Button("Pause");
         pauseButton.setOnAction(new EventHandler<ActionEvent>()
         { 
@@ -79,7 +72,21 @@ public class Game extends Application {
             
         });
         
-        grid.add(shootButton, (int)((grid.getWidth()-4.0)*2.0), (int)((grid.getHeight()-4.0)*2.0));
+        //Ground, sky, and bind to scene.
+        
+        Rectangle grass = new Rectangle(gameScene.getWidth(), gameScene.getHeight(), Paint.valueOf("blue"));
+        grass.xProperty().bind(gameScene.xProperty());
+        grass.yProperty().bind(gameScene.yProperty());
+        grass.widthProperty().bind(gameScene.widthProperty());
+        grass.heightProperty().bind(gameScene.heightProperty());
+        Rectangle sky = new Rectangle(gameScene.getWidth()/(1.6), gameScene.getHeight()/(1.6), Paint.valueOf("green"));
+        sky.xProperty().bind(gameScene.xProperty());
+        sky.yProperty().bind(gameScene.yProperty());
+        sky.widthProperty().bind(gameScene.widthProperty());
+        sky.heightProperty().bind(gameScene.heightProperty());
+        
+        grid.add(grass, 1, 1);
+        grid.add(sky, 1, 1);
         grid.add(pauseButton, (int)((grid.getWidth()-6.0)*2.0), (int)((grid.getHeight()-6.0)*2.0));
         
         //gameScene.getStylesheets().add(Menu.class.getResource("Menu.css").toExternalForm());

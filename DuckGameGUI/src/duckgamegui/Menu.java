@@ -47,6 +47,7 @@ public class Menu extends Application
     public void start(Stage mainStage) 
     {
         this.mainStage = mainStage;
+        
         mainStage.setTitle("Duck Hunter 1.0.0 - Menu");
         mainStage.setMinWidth(700);
         mainStage.setMinHeight(500);
