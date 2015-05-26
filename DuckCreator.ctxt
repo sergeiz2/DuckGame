@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=DuckCreator()
+comment1.params=
+comment1.target=Duck\ getDuck()
+comment2.params=duck
+comment2.target=void\ setDuck(Duck)
+numComments=3

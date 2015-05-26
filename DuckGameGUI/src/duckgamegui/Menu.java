@@ -33,11 +33,10 @@ import javafx.stage.Stage;
  *
  * @author Serge Zvenigorodsky
  */
-public class DuckGameGUI extends Application 
+public class Menu extends Application 
 {
     private Stage mainStage;
     private Scene menuScene;
-    private Scene graphicsScene;
    
     public static void main(String[] args)
     {
@@ -48,10 +47,11 @@ public class DuckGameGUI extends Application
     public void start(Stage mainStage) 
     {
         this.mainStage = mainStage;
-        mainStage.setTitle("Duck Hunter 1.0.0");
+        mainStage.setTitle("Duck Hunter 1.0.0 - Menu");
         mainStage.setMinWidth(700);
         mainStage.setMinHeight(500);
         mainStage.centerOnScreen();
+        mainStage.setResizable(false);
         
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.TOP_LEFT);
@@ -187,10 +187,13 @@ public class DuckGameGUI extends Application
                 choke = chooseChoke.getSelectionModel().getSelectedItem().toString();
                 shotSize = Double.parseDouble(chooseShotSize.getText());
                 shotMaterial = chooseShotMaterial.getSelectionModel().getSelectedItem().toString();
-                difficulty = chooseDifficulty.getSelectionModel().getSelectedIndex();
+                difficulty = chooseDifficulty.getSelectionModel().getSelectedIndex() + 1;
                 
-                Runner runner;
-                runner = new Runner(gunType, gauge, choke, shotSize, shotMaterial, difficulty);
+                //System.out.println(gunType + gauge + choke + shotSize + shotMaterial + difficulty);
+                //Runner runner;
+                //runner = new Runner(gunType, gauge, choke, shotSize, shotMaterial, difficulty);
+                
+                mainStage.close();
             }
         });
         
@@ -204,7 +207,7 @@ public class DuckGameGUI extends Application
         grid.add(okButton, 50, 70);
         
         menuScene.getStylesheets().add
-        (DuckGameGUI.class.getResource("DuckGameGUI.css").toExternalForm());
+        (Menu.class.getResource("Menu.css").toExternalForm());
         
         mainStage.show();   
     }
