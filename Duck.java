@@ -12,6 +12,7 @@ public class Duck extends MovingObj
 {
     private int xWindowSize;
     private int yWindowSize;
+    private long duckFallTime;
     
     public Duck(int xWindowSize, int yWindowSize) //graphics x and y
     {
@@ -21,6 +22,7 @@ public class Duck extends MovingObj
         setRelativeLocations(calcRelativeLocations());
         this.xWindowSize = xWindowSize;
         this.yWindowSize = yWindowSize;
+        duckFallTime = 0;
     }
     public Vector3D calcInitReferancePoint() //x and y in the graphics sense // get window size.
     {
@@ -46,7 +48,19 @@ public class Duck extends MovingObj
     }
     public Vector3D calcReferancePoint(long time)
     {
-         return getVelocity().scalarMultiply((double)(time)).add(getReferancePoint());
+        if (time < duckFallTime || duckFallTime == 0)
+        {
+            return getVelocity().scalarMultiply((double)(time/1000000000L)).add(getReferancePoint());
+        }
+        else 
+        {
+            return getVelocity().scalarMultiply((double)(time/1000000000L)).add(getReferancePoint()).
+                       subtract(new Vector3D (0.0, 0.0, (double)((time*-9.8)/1000000000L)));
+        }
+    }
+    public void setFallTime(long time)
+    {
+        duckFallTime = time;
     }
     public ArrayList<Vector3D> calcRelativeLocations() //10 cm cubes
     {

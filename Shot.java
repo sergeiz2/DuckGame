@@ -131,7 +131,7 @@ public class Shot extends MovingObj
     }
     public Vector3D calcReferancePoint(long time) //in nanosecs
     {
-        return getVelocity().scalarMultiply((double)(time)).add(getReferancePoint());
+        return getVelocity().scalarMultiply((double)(time/1000000000L)).add(getReferancePoint());
     }
     public ArrayList<Vector3D> calcRelativeLocations() //10 cm cubes, 80 cm constant radius sphere
     {

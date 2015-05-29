@@ -15,7 +15,7 @@ public abstract class WithLocation
     {
         this.locations = locations;
     }
-    abstract ArrayList<Vector3D> calcLocations(ArrayList<Vector3D> relativeLocations, Vector3D referancePoint);
+    abstract ArrayList<Vector3D> calcLocations(long time);
     ArrayList<Vector3D> getLocations()
     {
         return locations;

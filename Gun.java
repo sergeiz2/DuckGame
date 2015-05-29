@@ -15,8 +15,6 @@ public class Gun extends WithLocation
     private Vector3D gunTip; //<-- maybe instead of this just find the appropriate point from gunLocations?
     private String gunType;
     private Shot shot;
-    private double xAim;
-    private double zAim; //note that z is the up and down axis for vector ops, but y is the up and down axis for graphics.
     private int timesShot;
     private long timeLastShot;
     private final long DOUBLE_BARREL_RELOAD_TIME = 5000000000L;
@@ -30,7 +28,7 @@ public class Gun extends WithLocation
     {
         gunGauge = gauge;
         gunType = type;
-        setLocations(calcLocations(null, null));
+        setLocations(calcLocations(0L));
         setTip(); //See note above for gunTip
         this.shot = shot;
     }
@@ -38,7 +36,7 @@ public class Gun extends WithLocation
     {
         gunTip = Vector3D.ZERO; //Replace with necessary Vector3D
     }
-    public ArrayList<Vector3D> calcLocations(ArrayList<Vector3D> relativeLocations, Vector3D referancePoint)
+    public ArrayList<Vector3D> calcLocations(long time)
     {
         return null; //In this version there is no gun in play. 
     }
@@ -46,7 +44,7 @@ public class Gun extends WithLocation
     {
         return gunTip;
     }
-    public void shoot()
+    public void shoot(double xAim, double zAim)  //note that z is the up and down axis for vector ops, but y is the up and down axis for graphics.
     {
         shot.fire(xAim, zAim);
         timeLastShot = System.nanoTime();

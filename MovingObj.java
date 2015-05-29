@@ -48,10 +48,11 @@ public abstract class MovingObj extends WithLocation
     {
         return relativeLocations;
     }
-    public ArrayList<Vector3D> calcLocations(ArrayList<Vector3D> relativeLocations, Vector3D referancePoint)
+    public ArrayList<Vector3D> calcLocations(long time)
     {
         ArrayList<Vector3D> locations;
         locations = new ArrayList<Vector3D>();
+        calcReferancePoint(time);
         
         for (Vector3D relative : relativeLocations)
         {
