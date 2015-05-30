@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/shot_Gauge-WeightOz-VelocityFPS.csv</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/Shot.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/WithLocation.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/Runner.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/Game.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/Menu.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/Gun.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/Duck.java</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/shot_Number-DiameterMillimeter-PelletsPerOz</file>
+            <file>file:/home/serge/Desktop/BluejProjects/DuckGame/src/duckgame/MovingObj.java</file>
+        </group>
     </open-files>
 </project-private>
