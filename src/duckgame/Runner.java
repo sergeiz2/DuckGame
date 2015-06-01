@@ -16,9 +16,12 @@ public class Runner
     private Gun gun;
     private Shot shot;
     private Duck duck;
+    private Game game;
     private long timeOfMinimumDistance;
     private double criticalDistance = 2;
     boolean duckFalls;
+    private int tempNMinDistCalls = 0;
+    private long duckCreatedTime = 0;
     
     Runner(String gunType, int gauge, String choke, double shotSize, String shotMaterial, int difficulty) throws FileNotFoundException
     {
@@ -63,17 +66,28 @@ public class Runner
     public void fireGun(double xAim, double zAim) //only fire if gun.canShoot() 
     {
             gun.shoot(xAim, zAim);
+            long nowTime = System.nanoTime();
+            duck.setReferancePoint(duck.calcReferancePoint(nowTime - duckCreatedTime)); // Need to recalc new duck ref pt at shoot time.
+            System.out.println("New Duck Ref Pt = " + duck.getReferancePoint());
             timeOfMinimumDistance = minimumDistanceTime(0L, 10000000000L); //10 seconds in ns
             setDuckFalls(duckIsHit());
             if (duckFalls)
             {
-                duck.setFallTime(timeOfMinimumDistance);
+                //duck.setFallTime(timeOfMinimumDistance);
+                duck.setFallTime(System.nanoTime());
             }
     }
     
     public void makeDucks()
     {
-         DuckCreator duckcreator = new DuckCreator();
+         //DuckCreator duckcreator = new DuckCreator();
+        setDuck(new Duck(game.getWindowWidth(), game.getWindowHeight())); //this is a one-time duck creation. fix this later.
+        duckCreatedTime = System.nanoTime();
+    }
+    
+    public long getDuckCreatedTime()
+    {
+        return duckCreatedTime;
     }
     
     public void setDuckFalls(boolean df)
@@ -88,6 +102,9 @@ public class Runner
     
     private long minimumDistanceTime(long timeStart, long timeEnd) // in nanoseconds
     {
+        tempNMinDistCalls++;
+        System.out.println("StartTime = " + timeStart + ", EndTime = " + timeEnd);
+        
         ArrayList<Double> distances= new ArrayList<Double>();
         long timeSegment = timeEnd-timeStart;
         double d1 = shot.calcReferancePoint((timeSegment/1000) + timeStart).distance(duck.calcReferancePoint(timeSegment/1000));
@@ -110,14 +127,18 @@ public class Runner
             {
                 min = d;
                 ind = distances.indexOf(d);
+                
             }
+            System.out.println("Distance = " + d);
         }
         
-        if (timeSegment > 1)
+        System.out.println("Min Distance = " + min + ", Min Index = " + ind);
+        
+        if (timeSegment > 200000) // 1/5ms = 200000ns. @ a spd of 1000ft/s, will travel 1/5th of a foot in 200000ns.  
         {
             if (ind == 0)
             {
-                return minimumDistanceTime(timeStart, timeStart+timeSegment/1000L);
+                return minimumDistanceTime(timeStart, timeStart+timeSegment/10L);
             }
             else if (ind == 1)
             {
@@ -137,6 +158,7 @@ public class Runner
             }
         }
         
+        System.out.println("tempNMinDistCalls = " + tempNMinDistCalls);
         return timeStart;
     }
     public boolean duckIsHit()
@@ -172,37 +194,63 @@ public class Runner
     {
         return duck;
     }
-    public class DuckCreator
+    public void setGame (Game game)
     {
-        private Timer timer;
-    
-        public DuckCreator()
-        {
-            timer = new Timer();
-            timer.schedule(new DuckMaker(), (int)(Math.random()*14999+1));
-        }
-        public void setDuckDC(Duck duck)
-        {
-            setDuck(duck);
-        }
-        public void setTimer(Timer newTimer)
-        {
-            timer = newTimer;
-        }
-        public Timer getTimer()
-        {
-            return timer;
-        }
-        private class DuckMaker extends TimerTask
-        {  
-            @Override
-            public void run()
-            {
-                setDuckDC(new Duck(Game.getWindowWidth(), Game.getWindowHeight())); 
-                timer.cancel();
-                timer = new Timer();
-                timer.schedule(new DuckMaker(), (int)(Math.random()*39999+1));
-            }
-        }
+        this.game = game;
     }
+    
+//    public class DuckCreator
+//    {
+//        private Timer timer;
+//    
+//        public DuckCreator()
+//        {
+//            timer = new Timer();
+//            timer.schedule(new DuckMaker(), (int)(Math.random()*4999+1));
+//        }
+//        
+//        public void setDuckDC(Duck duck)
+//        {
+//            setDuck(duck);
+//        }
+//        public void setTimer(Timer newTimer)
+//        {
+//            timer = newTimer;
+//        }
+//        public Timer getTimer()
+//        {
+//            return timer;
+//        }
+//        private class DuckMaker extends TimerTask
+//        {  
+//            @Override
+//            public void run() 
+//            {
+//                setDuckDC(new Duck(game.getWindowWidth(), game.getWindowHeight())); 
+//                timer.cancel();
+//                timer = new Timer();
+//                while (game.getWindowHeight() + 1000 > Math.abs(game.getDuckYPos()) && 
+//                       game.getWindowWidth() + 1000 > Math.abs(game.getDuckYPos()))  //wouldn't want an infinite loop here
+//                {
+//                    if (game.getWindowHeight() < game.getDuckYPos() || game.getDuckYPos() < 0 ||
+//                         game.getWindowWidth() < game.getDuckXPos() || game.getDuckXPos() < 0)
+//                    {
+//                        timer.schedule(new DuckMaker(), (int)(Math.random()*4999+1));
+//                    }
+//                    else
+//                    {
+//                        try
+//                        {
+//                            Thread.sleep(250);
+//                        }
+//                        catch (InterruptedException ex)
+//                        {
+//                            //Ignore
+//                        }
+//                    }
+//                }
+//                
+//            }
+//        }
+//    }
 }

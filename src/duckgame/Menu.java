@@ -218,6 +218,7 @@ public class Menu extends Application
                         {             
                             mainStage.close();
                             Game game = new Game();
+                            runner.setGame(game);
                             game.setRunner(runner);
                             game.start(new Stage());
                            

@@ -27,22 +27,26 @@ public class Duck extends MovingObj
     }
     public Vector3D calcInitReferancePoint() //x and y in the graphics sense // get window size.
     {
-        double xScale = (Math.random()*700/*xWindowSize*/); //x and y in the 3D sense (z is height, x is graphics x, and y is depth) //FIX THIS LATER
+        double xScale = (350 + (Math.random()*400 - 200) /*xWindowSize*/); //x and y in the 3D sense (z is height, x is graphics x, and y is depth) //FIX THIS LATER
         double yScale = (Math.random()*0.0); //change this in later versions.
-        double zScale = (Math.random()*600 /*yWindowSize*/);  //FIX THIS LATER
+        double zScale = (300 + (Math.random()*300 - 150)/*yWindowSize*/);  //FIX THIS LATER
         
-        System.out.println("WIDTH :" + xWindowSize + yWindowSize + ": HEIGHT");
+        Vector3D duckInitRefPt = new Vector3D(xScale/10, yScale, zScale/10); // dividing by 10 to compensate for duck being too far.
         
-        return new Vector3D(xScale, yScale, zScale);
+        System.out.println("Duck InitReferancePoint: " + duckInitRefPt);
+        
+        return duckInitRefPt;
     }
     public Vector3D calcInitVelocity()
     {
-        double xScale = (Math.random()*((26.8224*2)/Math.sqrt(2)))-(Math.random()*((26.8224)/Math.sqrt(2))); //x and y in the 3D sense (z is height, x is graphics x, and y is depth)
-        double yScale = 0; //Math.random()*(26.8224/Math.sqrt(3)); // change in later versions
-        double zScale = (Math.random()*((26.8224*2)/Math.sqrt(2)))-(Math.random()*((26.8224)/Math.sqrt(2)));//26.8224 meters/sec is max duck speed.
-        
-        return new Vector3D(xScale, Vector3D.PLUS_I, yScale, Vector3D.PLUS_J,
+        double xScale = (Math.random()*((10*2)/Math.sqrt(2))) - (10/Math.sqrt(2)); //x and y in the 3D sense (z is height, x is graphics x, and y is depth)
+        double yScale = 0; //Math.random()*(10/Math.sqrt(3)); // change in later versions
+        double zScale = (Math.random()*((10*2)/Math.sqrt(2))) - (10/Math.sqrt(2));//26.8224 meters/sec is max duck speed.
+        Vector3D duckInitVelocity = new Vector3D(xScale, Vector3D.PLUS_I, yScale, Vector3D.PLUS_J,
                                                            zScale, Vector3D.PLUS_K);
+        System.out.println("Duck Velocity = " + duckInitVelocity);
+        
+        return duckInitVelocity;
     }
     public Vector3D calcVelocity()
     {
@@ -51,14 +55,16 @@ public class Duck extends MovingObj
     }
     public Vector3D calcReferancePoint(long time)
     {
-        if (time < duckFallTime || duckFallTime == 0)
+        if (duckFallTime == 0) //USING TIME FROM LAST SHOT. THIS IS WHY DUCK IS "JUMPING." Calculating refpt based on time since latest shot. 
         {
-            return getVelocity().scalarMultiply((double)(time/1000000000L)).add(getReferancePoint());
+            return getVelocity().scalarMultiply(((double)(time))/1000000000L).add(getReferancePoint());
         }
         else 
         {
-            return getVelocity().scalarMultiply((double)(time/1000000000L)).add(getReferancePoint()).
-                       subtract(new Vector3D (0.0, 0.0, (double)((time*-9.8)/1000000000L)));
+            double sinceDuckHit = (double)(System.nanoTime() - duckFallTime);
+            
+            return getVelocity().scalarMultiply(sinceDuckHit/1000000000L).add(getReferancePoint()).
+                       add(new Vector3D (0.0, 0.0, ((sinceDuckHit*9.8)/1000000000L)));
         }
     }
     public void setFallTime(long time)

@@ -31,6 +31,7 @@ public class Shot extends MovingObj
         nOfPellets = calcNOfPellets();
         calcInitReferancePoint(); /*In future versions, calculate the point immediately in front of the barrel of the gun*/
         setInitSpeed();
+        setRelativeLocations(calcRelativeLocations());
     }
     public Vector3D calcInitReferancePoint()
     {
@@ -60,13 +61,15 @@ public class Shot extends MovingObj
 //        sc.close();
 //        
 //        initSpeed = (sum/ctr)*0.3048; //converted to meters per second
-        initSpeed = 1200;
+        initSpeed = 1200*.3048; //converted to meters per second
     }
     public Vector3D calcInitVelocity(double xVector, double zVector) //Change to 3D in later version.
     {
         Vector3D vel2D = new Vector3D(xVector, 0.0, zVector);
-        vel2D.normalize();
-        vel2D.scalarMultiply(initSpeed);
+        vel2D = vel2D.normalize();
+        vel2D = vel2D.scalarMultiply(initSpeed);
+        
+        System.out.println("Shot Velocity Vector = " + vel2D);
         
         return vel2D;
     }
@@ -134,7 +137,11 @@ public class Shot extends MovingObj
     }
     public Vector3D calcReferancePoint(long time) //in nanosecs
     {
-        return getVelocity().scalarMultiply((double)(time/1000000000L)).add(getReferancePoint());
+        Vector3D calcRefPt = getVelocity().scalarMultiply(((double)(time))/1000000000L).add(getReferancePoint());
+        
+        System.out.println("calcRefPt = " + calcRefPt);
+        
+        return calcRefPt;
     }
     public ArrayList<Vector3D> calcRelativeLocations() //10 cm cubes, 80 cm constant radius sphere
     {
